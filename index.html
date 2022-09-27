@@ -8,8 +8,20 @@
 </head>
 <style>
     *{
-        box-sizing: border-box;
-    }
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  color:#333;
+  text-decoration: none;
+}
+input,button{
+  outline: none;
+}
     body{
         background-color: rgb(248,248,248);
     }
@@ -26,6 +38,8 @@
         height: 710px;
         display: flex;
         margin: 0 auto;
+        justify-content: center;
+        align-items: center;
     }
     .imgPhone{
         width: 420px;
@@ -78,6 +92,7 @@
         font-weight: bold;
         border: none;
         color: white;
+        cursor: pointer;
     }
     .loginButton:disabled{
         background-color: rgb(164, 216, 252);;
@@ -109,7 +124,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 8px 0px;
+        margin: 20px 0px;
+
     }
     .facebookBox > p {
         padding-top: 2.5px;

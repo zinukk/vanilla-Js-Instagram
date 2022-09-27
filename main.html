@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/acf7d390d5.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    *{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  color:#333;
+  text-decoration: none;
+}
+input,button{
+  outline: none;
+}
+body,html{
+  height: 100%;
+  background: rgb(249, 249, 249);
+}
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+    .header{
+        width: 100%;
+        height: 60px;
+        border-bottom: 1px solid rgb(211,211,211);
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        background: white;
+    }
+    .headerContentBox{
+        max-width: 975px;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .logoImgBox{
+        width:103px;
+    }
+    .searchBox{
+        min-width: 268px;
+        height: 38px;
+        position: relative;
+    }
+    .searchBox > input {
+        min-width: 268px;
+        height: 38px;
+        border: none;
+        border-radius: 5px;
+        background: rgb(235,235,235);
+        padding-left: 40px;
+        font-size: 16px;
+        font-weight: 200;
+        position: relative;
+    }
+    .searchBox > img{
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+    .selectBox{
+        min-width: 120px;
+        height: 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .selectBox > img {
+        width: 24px;
+    }
+    .wrapBox{
+        display: flex;
+        width: auto;
+        margin-top: 100px;
+    }
+    .contentBox{
+        width: 470px;
+        height : 600px;
+        margin-right: 32px;
+    }
+    .recommendBox{
+        width: 319px;
+
+        padding: 18px 0;
+    }
+
+    .storyWrapBox{
+        width: 470px;
+        height: 119px;
+        padding: 16px 0;
+        padding-left: 16px;
+        border: 1px solid rgb(211,211,211);
+        display: flex;
+        border-radius: 8px;
+        background: white;
+    }
+
+    .storyBox{
+        width: 68px;
+        height: 88px;
+        margin-right: 16px;
+    }
+
+    .storyColorBox{
+        width: 66px;
+        height: 66px;
+        border-radius: 66px;
+        background: linear-gradient(rgb(198,28,184), rgb(251,20,50), rgb(253,191,15));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    .storyImg{
+        width: 62px;
+        height: 62px;
+        border-radius: 62px;
+        border: 2px solid white;
+        display: block;
+    }
+    .storyNickname{
+        text-align: center;
+        font-size: 14px;
+    }
+    .pheedBox{
+        width: 470px;
+        border: 1px solid rgb(211,211,211);
+        border-radius: 8px;
+        margin-top: 18px;
+        background: white;
+    }
+    .pheedHeaderBox{
+        display: flex;
+        width: 470px;
+        height: 56px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        padding-right: 15px;
+    }
+    .pheedHeaderBox > div{
+        width: 410px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+    }
+    .pheedHeaderBox > div > div{
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(rgb(198,28,184), rgb(251,20,50), rgb(253,191,15));
+    }
+    .pheedHeaderBox > div > div > img{
+        width: 36px;
+        height: 36px;
+        border-radius: 36px;
+        border: 2px solid white;
+    }
+    .pheedHeaderBox > div > p{
+        margin-left: 10px;
+        font-weight: 600;
+    }
+    .pheedImgBox{
+        width: 468px;
+        height: 468px;
+        display: block;
+    }
+    .pheedLikeBox > img{
+        width: 24px;
+        display: block;
+        margin: 12px ;
+    }
+    .pheedLikeBox > p{
+        font-size: 15px;
+        font-weight: bold;
+        margin: 12px;
+    }
+    .pheedLikeBox > p > span {
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+    .pheedCommentBox{
+        width: 470px;
+        padding: 12px;
+    }
+    .pheedCommentBox > p{
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 2px;
+    }
+    .pheedCommentBox > p > span {
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+    .pheedInputBox{
+        width: 100%;
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgb(211,211,211);
+    }
+    .pheedInputBox > img{
+        width: 32px;
+    }
+    .pheedInputBox > input{
+        width: 100%;
+        height: 20px;
+        padding-left: 10px;
+        border: none;
+        font-size: 15px;
+    }
+    .pheedInputBox > p{
+        color: rgb(15,127,243);
+        width: 35px;
+        font-size: 15px;
+    }
+    .myProfileBox{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .myProfileBg{
+        width: 58px;
+        height: 58px;
+        background: linear-gradient(rgb(198,28,184), rgb(251,20,50), rgb(253,191,15));
+        border-radius: 58px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .myProfile{
+        display: flex;
+        align-items: center;
+    }
+    .myProfileText{
+        margin-left: 12px;
+    }
+    .myProfileText > p{
+        color: rgb(147,147,147);
+        font-size: 14px;
+    }
+    .myProfile > div > img{
+        width: 54px;
+        height: 54px;
+        border-radius: 54px;
+        border: 2px solid white;
+    }
+    .myProfileBox > p{
+        font-size: 12px;
+        color: rgb(15,127,243);
+    }
+    .recommendFriendsBox{
+        width: 100%;
+        margin: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .recommendFriends{
+        font-size: 14px;
+        color: rgb(147,147,147);
+        font-weight: 600;
+    }
+    .seeAll{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .friendsListBox{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-left: 5px;
+    }
+    .friendsListBox > div {
+        display: flex;
+    }
+    .friendsListBox > div > img{
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+    }
+    .friendsListText{
+        width: 100%;
+
+        margin-left: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    .friendsListText > p{
+        font-size: 12px;
+        color: rgb(147,147,147);
+    }
+    .friendsListBox > p{
+        font-size: 12px;
+        color: rgb(15,127,243);
+    }
+</style>
+<body>
+    <div class="container">
+        <nav class="header">
+            <div class="headerContentBox">
+                <img class="logoImgBox" src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png"></img>
+                <div class="searchBox">
+                    <input type="text" placeholder="검색" />
+                    <img src="./searchImg.png" alt="">
+                </div>
+                <div class="selectBox" >
+                    <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png" />
+                    <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png" />
+                    <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png" />
+                </div>
+        </div>
+        </nav>
+        <div class="wrapBox">
+            <div class="contentBox">
+                <div class="storyWrapBox">
+                    <div class="storyBox">
+                        <div class="storyColorBox">
+                            <img class="storyImg" src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        </div>
+                        <p class="storyNickname">zi_nukk</p>
+                    </div>
+                    <div class="storyBox">
+                        <div class="storyColorBox">
+                            <img class="storyImg" src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        </div>
+                        <p class="storyNickname">zi_nukk</p>
+                    </div>
+                    <div class="storyBox">
+                        <div class="storyColorBox">
+                            <img class="storyImg" src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        </div>
+                        <p class="storyNickname">zi_nukk</p>
+                    </div>
+                    <div class="storyBox">
+                        <div class="storyColorBox">
+                            <img class="storyImg" src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        </div>
+                        <p class="storyNickname">zi_nukk</p>
+                    </div>
+                </div>
+                <div class="pheedBox">
+                    <div class="pheedHeaderBox">
+                        <div>
+                            <div>
+                                <img src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                            </div>
+                            <p>zi_nukk</p>
+                        </div>
+                        <img src="./burger.png" ></img>
+                    </div>
+                    <img class="pheedImgBox" src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                    <div class="pheedLikeBox">
+                        <img src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png" />
+                        <p>좋아요 441개</p>
+                        <p>zi_nukk <span>css 그만하고 싶어요 제발</span></p>
+                        
+                    </div>
+                    <div class="pheedCommentBox">
+                        <p>gwan_ha5348<span>그래도 해야지</span></p>
+                        <p>silver._.ing<span>견뎌</span></p>
+                        <p>sy_n2<span>이겨내</span></p>
+                    </div>
+                    <div class="pheedInputBox">
+                        <img src="./smile.png" />
+                        
+                        <input type="text" placeholder="댓글 달기..." />
+                        <p>게시</p>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendBox">
+                <div class="myProfileBox">
+                    <div class="myProfile">
+                        <div class="myProfileBg">
+                            <img src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        </div>
+                        <div class="myProfileText">
+                            <h4 >zi_nukk</h4>
+                            <p>이진혁</p>
+                        </div>
+                    </div>
+                    <p>
+                        전환
+                    </p>
+                </div>
+                <div class="recommendFriendsBox">
+                    <p class="recommendFriends">회원님을 위한 추천</p>
+                    <p class="seeAll" >모두 보기</p>
+                </div>
+                <div class="friendsListBox">
+                    <div class="friendsList">
+                        <img src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        <div class="friendsListText">
+                            <h5 >zi_nukk</h5>
+                            <p>Instagram 신규 가입</p>
+                        </div>
+                    </div>
+                    <p>
+                        팔로우
+                    </p>
+                </div>
+                <div class="friendsListBox">
+                    <div class="friendsList">
+                        <img src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        <div class="friendsListText">
+                            <h5 >zi_nukk</h5>
+                            <p>Instagram 신규 가입</p>
+                        </div>
+                    </div>
+                    <p>
+                        팔로우
+                    </p>
+                </div>
+                <div class="friendsListBox">
+                    <div class="friendsList">
+                        <img src="https://i.pinimg.com/originals/29/69/5a/29695a0cc4405b3ad1c950d6c804a36d.png" />
+                        <div class="friendsListText">
+                            <h5 >zi_nukk</h5>
+                            <p>Instagram 신규 가입</p>
+                        </div>
+                    </div>
+                    <p>
+                        팔로우
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
