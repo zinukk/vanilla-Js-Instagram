@@ -38,4 +38,3 @@ function asd(comments) {
   commentInput.value = "";
 }
 saveValue.addEventListener("click", setCommentsLocal);
-saveValue.addEventListener("enter", setCommentsLocal);
