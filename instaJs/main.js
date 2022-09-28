@@ -18,7 +18,7 @@ const setCommentsLocal = () => {
   comments.push(commentsValue);
 
   localStorage.setItem("comments", JSON.stringify(comments));
-
+  // asd
   asd(comments);
 };
 
