@@ -12,7 +12,3 @@ function validationCheck() {
 
 userId.addEventListener("keypress", validationCheck);
 userPassword.addEventListener("keypress", validationCheck);
-
-loginButton.addEventListener("click", function () {
-  alert("오잉");
-});

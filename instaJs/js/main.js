@@ -36,7 +36,5 @@ function asd() {
     feedCommentBox.appendChild(newComment);
   }
   commentInput.value = "";
-  let a = 123;
-  let b = 123;
 }
 saveValue.addEventListener("click", setCommentsLocal);
