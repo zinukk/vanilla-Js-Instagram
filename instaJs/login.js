@@ -8,6 +8,8 @@ function validationCheck() {
     : (loginButton.disabled = true);
 }
 
+//asd
+
 userId.addEventListener("keypress", validationCheck);
 userPassword.addEventListener("keypress", validationCheck);
 
