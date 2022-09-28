@@ -19,10 +19,10 @@ const setCommentsLocal = () => {
 
   localStorage.setItem("comments", JSON.stringify(comments));
   // asd
-  asd(comments);
+  asd();
 };
 
-function asd(comments) {
+function asd() {
   let value = JSON.parse(localStorage.getItem("comments"));
   console.log(value);
   const newComment = document.createElement("p");
