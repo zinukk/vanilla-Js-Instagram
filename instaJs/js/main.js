@@ -15,14 +15,16 @@ const setCommentsLocal = () => {
     comment: commentInput.value,
   };
 
-  comments.push(commentsValue);
+  if (commentsValue.comment !== "") {
+    comments.push(commentsValue);
+  }
 
   localStorage.setItem("comments", JSON.stringify(comments));
-  // asd
-  asd();
+
+  parsingData();
 };
 
-function asd() {
+function parsingData() {
   let value = JSON.parse(localStorage.getItem("comments"));
   console.log(value);
   const newComment = document.createElement("p");
@@ -30,11 +32,18 @@ function asd() {
   for (let i = 0; i < value.length; i++) {
     newComment.innerHTML = `
                             <div class="feedComment">
-                                <p>zi_nukk <span>${value[i].comment}</span></p>
+                                <b>zi_nukk</b> <span>${value[i].comment}</span>
                             </div>
                         `;
     feedCommentBox.appendChild(newComment);
   }
-  commentInput.value = "";
+  commentInput.value = null;
 }
+
+const onKeyDownHandler = () => {
+  if (window.event.keyCode == 13) {
+    setCommentsLocal();
+  }
+};
+
 saveValue.addEventListener("click", setCommentsLocal);
