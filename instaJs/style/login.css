@@ -165,3 +165,6 @@
           justify-content: space-between;
           align-items: center;
       }
+      .downloadBox > img {
+        width : 136px;
+      }

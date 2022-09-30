@@ -26,12 +26,12 @@ const setCommentsLocal = () => {
 
 function parsingData() {
   let value = JSON.parse(localStorage.getItem("comments"));
-  console.log(value);
+
   const newComment = document.createElement("div");
+
   newComment.className = "feedComment";
 
   for (let i = 0; i < value.length; i++) {
-    // if (value[i] == "")
     newComment.innerHTML = `
                             <p>zi_nukk <span>${value[i].comment}</span></p> 
                         `;
@@ -40,7 +40,7 @@ function parsingData() {
 }
 
 const onKeyDownHandler = () => {
-  if (window.event.keyCode == 13) {
+  if (window.event.code == "Enter") {
     setCommentsLocal();
   }
 };
