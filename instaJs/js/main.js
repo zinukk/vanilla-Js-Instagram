@@ -20,24 +20,23 @@ const setCommentsLocal = () => {
   }
 
   localStorage.setItem("comments", JSON.stringify(comments));
-
+  commentInput.value = null;
   parsingData();
 };
 
 function parsingData() {
   let value = JSON.parse(localStorage.getItem("comments"));
   console.log(value);
-  const newComment = document.createElement("p");
+  const newComment = document.createElement("div");
+  newComment.className = "feedComment";
 
   for (let i = 0; i < value.length; i++) {
+    // if (value[i] == "")
     newComment.innerHTML = `
-                            <div class="feedComment">
-                                <b>zi_nukk</b> <span>${value[i].comment}</span>
-                            </div>
+                            <p>zi_nukk <span>${value[i].comment}</span></p> 
                         `;
     feedCommentBox.appendChild(newComment);
   }
-  commentInput.value = null;
 }
 
 const onKeyDownHandler = () => {
